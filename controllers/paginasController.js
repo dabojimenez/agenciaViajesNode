@@ -1,3 +1,4 @@
+import { Viaje } from "../models/Viaje.js";
 
 const paginaInicio = (req, res) => {
     // colocar nuestra propia respuesta
@@ -23,10 +24,14 @@ const paginaNosotros = (req, res) => {
     }); // render => ya espera el nombre d euna vista, en la carpeta de views
 }
 
-const paginaViajes = (req, res) => {
+const paginaViajes = async (req, res) => {
+    // Consultar Base de datos
+    const viajes = await Viaje.findAll();
+    // console.log(viajes);
     // res.send('Contacto');
     res.render('viajes', {
-        pagina: 'Viajes',
+        pagina: 'Próximos viajes',
+        viajes
     });
 }
 

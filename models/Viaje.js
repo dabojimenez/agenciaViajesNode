@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import db from "../config/db";
+import db from "../config/db.js";
 
 // en el objeto tenemos que definir cada una de las tablas
 export const Viaje = db.define('viajes', {
@@ -9,7 +9,7 @@ export const Viaje = db.define('viajes', {
     precio: {
         type: Sequelize.STRING
     },
-    fecha_id: {
+    fecha_ida: {
         type: Sequelize.DATE
     },
     fecha_vuelta: {
