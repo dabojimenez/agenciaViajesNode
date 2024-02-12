@@ -9,7 +9,7 @@ const router = express.Router();
 // res => (response) es lo que me respondera
 router.get('/', (req, res) => {
     // colocar nuestra propia respuesta
-    res.send('Hola mundo'); // metodo usado para mostrar algo en pantalla
+    res.render('inicio'); // metodo usado para mostrar algo en pantalla
     
     // res.json({
     //     id: 1

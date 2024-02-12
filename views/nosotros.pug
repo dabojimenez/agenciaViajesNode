@@ -1,8 +1,12 @@
 //- <h1>Hola</h1>, esta sintaxis es similar a la de la linea siguiente
-h1 Hola
-p Desde pug 
-//- Para usar, las variables en la vista, debemos usar el signo igual (=)
+//- h1 Hola
 
-p= viajes 
-//- o podemos usar el signo de numeral (#) y las llaves ({})
-p #{viajes}
+extends ./layout/index
+
+block contenido
+    p Desde pug 
+    //- Para usar, las variables en la vista, debemos usar el signo igual (=)
+
+    p= viajes 
+    //- o podemos usar el signo de numeral (#) y las llaves ({})
+    p #{viajes}
