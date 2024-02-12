@@ -13,4 +13,10 @@ Configurar el archivo package.json, para ejecutar y arracncar el servidor
     nodemon index.js => ejecutara el binario d ela carpeta node_modules y ejecutara el archivo de ocnfiguracion del servidor que hemso configurado previamente
 
 // Para geenrar las vistas, debemos intalar pug, para mas información en la seccion: 395. Que es un template Engine? y Habilitando Pug
-    []
+    [npm install pug]
+
+// Para poder usar las conexiones a las bases de datos, instalarmeos las siguientes herramientas:
+    [npm install mysql2 sequelize]
+        sequelize => viene a ser un ORM que usaremos en este proyecto
+    
+    Despues creamos en la raiz, una carpeta llamada (config), con un archivo llamado (db.js), que tendra la configuración de la conexion a nuestra base de datos

@@ -2,9 +2,15 @@
 // const express = require('express')
 import express from 'express';
 import router from './routes/index.js';
+import db from './config/db.js';
 
 
 const app = express();
+
+// Conectar la base de datos
+db.authenticate()
+    .then( ()=> console.log('Base de datos conectado'))
+    .catch( (error) => console.log(error))
 
 // Definir puerto
 // process.env.PORT = estas son variables de entorno y debe exitir en la parte de deployment, que por lo general node nos d auno
