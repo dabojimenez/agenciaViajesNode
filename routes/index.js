@@ -22,7 +22,11 @@ router.get('/', (req, res) => {
 // diferentes paginas o rutas
 router.get('/nosotros', (req, res) => {
     // res.send('Nosotros');
-    res.render('nosotros'); // render => ya espera el nombre d euna vista, en la carpeta de views
+    // Pasar variables a la vista
+    const viajes = 'Viaje Alemania';
+    res.render('nosotros', {
+        viajes, // usamos handlres para pasar viajes : viajes
+    }); // render => ya espera el nombre d euna vista, en la carpeta de views
 });
 
 // router.get('/contacto', (req, res) => {
