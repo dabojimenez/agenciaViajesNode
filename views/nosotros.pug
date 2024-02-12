@@ -4,12 +4,16 @@
 extends ./layout/index
 
 block contenido
-    p Desde pug 
-    //- Para usar, las variables en la vista, debemos usar el signo igual (=)
+    main.container.mt-5 
+        .row 
+            h1 #{pagina}
+//- block contenido
+//-     p Desde pug 
+//-     //- Para usar, las variables en la vista, debemos usar el signo igual (=)
 
-    p= viajes 
-    //- o podemos usar el signo de numeral (#) y las llaves ({})
-    p #{viajes}
+//-     p= viajes 
+//-     //- o podemos usar el signo de numeral (#) y las llaves ({})
+//-     p #{viajes}
 
-    //- uso de imagenes
-    //- img(src="img/cupon.jpg", alt="cupon")
+//-     //- uso de imagenes
+//-     //- img(src="img/cupon.jpg", alt="cupon")

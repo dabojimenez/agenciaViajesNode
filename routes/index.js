@@ -9,7 +9,9 @@ const router = express.Router();
 // res => (response) es lo que me respondera
 router.get('/', (req, res) => {
     // colocar nuestra propia respuesta
-    res.render('inicio'); // metodo usado para mostrar algo en pantalla
+    res.render('inicio', {
+        pagina: 'Inicio'
+    }); // metodo usado para mostrar algo en pantalla
     
     // res.json({
     //     id: 1
@@ -23,14 +25,26 @@ router.get('/', (req, res) => {
 router.get('/nosotros', (req, res) => {
     // res.send('Nosotros');
     // Pasar variables a la vista
-    const viajes = 'Viaje Alemania';
+    // const viajes = 'Viaje Alemania';
     res.render('nosotros', {
-        viajes, // usamos handlres para pasar viajes : viajes
+        pagina: 'Nosotros',
+        // viajes, // usamos handlres para pasar viajes : viajes
     }); // render => ya espera el nombre d euna vista, en la carpeta de views
 });
 
-// router.get('/contacto', (req, res) => {
-//     res.send('Contacto');
-// });
+router.get('/viajes', (req, res) => {
+    // res.send('Contacto');
+    res.render('viajes', {
+        pagina: 'Viajes',
+    });
+});
+
+router.get('/testimoniales', (req, res) => {
+    // res.send('Contacto');
+    res.render('testimoniales', {
+        pagina: 'Testimoniales',
+    });
+});
+
 
 export default router;
