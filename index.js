@@ -11,7 +11,10 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Habilitar PUG
-app.set('view engine', 'pug'); 
+app.set('view engine', 'pug');
+
+// Definir la carpeta publica
+app.use(express.static('public')); // agregaremos la carpeta publica como los archivos estaticos de express
 
 // Agregamos el router
 // use => soporta POST, GETL, PATCH, DELETE, etcy lo que hace es agregar a la pagina principal, las diferentes rutas que se van definiendo en router
