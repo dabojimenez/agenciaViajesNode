@@ -42,9 +42,31 @@ const paginaTestimoniales = (req, res) => {
     });
 }
 
+// Muestra un viaje por su slug
+const paginaDetalleViaje = async (req, res) => {
+    // req.params => se asocia mucho con el :slug que se coloco en la ruta
+    // console.log(req.params.slug);
+    const { slug } = req.params;
+
+    try {
+        // traemos un solo registro de la base de datos y con where le hacemos una condicion, indicandole la columna y el valor
+        const resultado = await Viaje.findOne({ where: {
+            slug
+        }})
+        res.render('viaje', {
+            pagina: 'Información Viaje',
+            resultado
+        })
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 export {
     paginaInicio,
     paginaNosotros,
     paginaViajes,
-    paginaTestimoniales
+    paginaTestimoniales,
+    paginaDetalleViaje
 }

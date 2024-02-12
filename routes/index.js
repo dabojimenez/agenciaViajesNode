@@ -1,6 +1,6 @@
 // en este archvio colocaremos todo lo que este relacionado con las rutas
 import express from "express";
-import { paginaInicio, paginaNosotros, paginaTestimoniales, paginaViajes } from "../controllers/paginasController.js";
+import { paginaDetalleViaje, paginaInicio, paginaNosotros, paginaTestimoniales, paginaViajes } from "../controllers/paginasController.js";
 
 
 // Estamos obteniendo la msima instancia de expres pero extendemos su router
@@ -16,6 +16,9 @@ router.get('/', paginaInicio );
 router.get('/nosotros', paginaNosotros);
 
 router.get('/viajes', paginaViajes);
+// para las url de forma dinamica, usarmeos el comodin que nos otroga express
+// cargara un metodo del controlador y lo colocara en la url
+router.get('/viajes/:slug', paginaDetalleViaje)
 
 router.get('/testimoniales', paginaTestimoniales);
 
