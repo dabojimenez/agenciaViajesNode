@@ -1,5 +1,7 @@
 // en este archvio colocaremos todo lo que este relacionado con las rutas
 import express from "express";
+import { paginaInicio, paginaNosotros, paginaTestimoniales, paginaViajes } from "../controllers/paginasController.js";
+
 
 // Estamos obteniendo la msima instancia de expres pero extendemos su router
 const router = express.Router();
@@ -7,44 +9,15 @@ const router = express.Router();
 // Peticion de los verbos GET, POST, DELETE, etc
 // req => (request) es el request es lo que envio/petición en el vervo ya sea al dar click o enviar un formulario
 // res => (response) es lo que me respondera
-router.get('/', (req, res) => {
-    // colocar nuestra propia respuesta
-    res.render('inicio', {
-        pagina: 'Inicio'
-    }); // metodo usado para mostrar algo en pantalla
-    
-    // res.json({
-    //     id: 1
-    // }) // mostramos un json
-
-    // para mostrar una vista y muy usado
-    // res.render();
-});
+// Ahora de esta forma, le pasamos el controlador que se necesita para esta ruta
+router.get('/', paginaInicio );
 
 // diferentes paginas o rutas
-router.get('/nosotros', (req, res) => {
-    // res.send('Nosotros');
-    // Pasar variables a la vista
-    // const viajes = 'Viaje Alemania';
-    res.render('nosotros', {
-        pagina: 'Nosotros',
-        // viajes, // usamos handlres para pasar viajes : viajes
-    }); // render => ya espera el nombre d euna vista, en la carpeta de views
-});
+router.get('/nosotros', paginaNosotros);
 
-router.get('/viajes', (req, res) => {
-    // res.send('Contacto');
-    res.render('viajes', {
-        pagina: 'Viajes',
-    });
-});
+router.get('/viajes', paginaViajes);
 
-router.get('/testimoniales', (req, res) => {
-    // res.send('Contacto');
-    res.render('testimoniales', {
-        pagina: 'Testimoniales',
-    });
-});
+router.get('/testimoniales', paginaTestimoniales);
 
 
 export default router;
