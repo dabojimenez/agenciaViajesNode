@@ -3,6 +3,7 @@
 import express from 'express';
 import router from './routes/index.js';
 
+
 const app = express();
 
 // Definir puerto
@@ -15,5 +16,6 @@ app.use('/', router);
 
 // si arranca correctamente, se moestrara el mensaje 
 app.listen( () => {
+
     console.log(`El servidor esta funcionando en el puerto ${port}`);
-})
+});
