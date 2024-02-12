@@ -1,0 +1,11 @@
+{
+  "name": "agenciaviajesnode",
+  "version": "1.0.0",
+  "description": "Curso de node en js moderno de juan d ela torre",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stalyn Jimenez",
+  "license": "ISC"
+}
