@@ -10,6 +10,9 @@ const app = express();
 // process.env.PORT = estas son variables de entorno y debe exitir en la parte de deployment, que por lo general node nos d auno
 const port = process.env.PORT || 4000;
 
+// Habilitar PUG
+app.set('view engine', 'pug'); 
+
 // Agregamos el router
 // use => soporta POST, GETL, PATCH, DELETE, etcy lo que hace es agregar a la pagina principal, las diferentes rutas que se van definiendo en router
 app.use('/', router);

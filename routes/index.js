@@ -21,11 +21,12 @@ router.get('/', (req, res) => {
 
 // diferentes paginas o rutas
 router.get('/nosotros', (req, res) => {
-    res.send('Nosotros');
+    // res.send('Nosotros');
+    res.render('nosotros'); // render => ya espera el nombre d euna vista, en la carpeta de views
 });
 
-router.get('/contacto', (req, res) => {
-    res.send('Contacto');
-});
+// router.get('/contacto', (req, res) => {
+//     res.send('Contacto');
+// });
 
 export default router;
