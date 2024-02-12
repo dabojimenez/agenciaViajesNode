@@ -13,6 +13,22 @@ const port = process.env.PORT || 4000;
 // Habilitar PUG
 app.set('view engine', 'pug');
 
+// Creacion propia de nuestro middelware
+// Obtener el anio actual
+// next => nos permite dirigir al siguiente middelware, y si no se lo coloca, no se ejecutara las siguientes lineas
+app.use( (req, res, next) => {
+    // con locals, es como una variable inetrna de express que podemos ir asignando mas varibales y son muy faciles de leer en la vista
+    // res.locals.unaVariable = 'Nueva variable';
+
+    const year = new Date();
+    res.locals.actualYear = year.getFullYear();
+
+    // le permitimos ir a la siguiente linea, cuando ya termino
+    // si le colocamos un return, lo estariamos forrzando, esto en caso de que asi por si solo next() no funcione
+    // return next();
+    next();
+});
+
 // Definir la carpeta publica
 app.use(express.static('public')); // agregaremos la carpeta publica como los archivos estaticos de express
 
