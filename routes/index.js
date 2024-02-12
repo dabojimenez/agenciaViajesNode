@@ -9,7 +9,7 @@ const router = express.Router();
 // res => (response) es lo que me respondera
 router.get('/', (req, res) => {
     // colocar nuestra propia respuesta
-    res.send('Hola mundo'); // metodo usado para mostrar algo en pantalla
+    res.render('inicio'); // metodo usado para mostrar algo en pantalla
     
     // res.json({
     //     id: 1
@@ -22,7 +22,11 @@ router.get('/', (req, res) => {
 // diferentes paginas o rutas
 router.get('/nosotros', (req, res) => {
     // res.send('Nosotros');
-    res.render('nosotros'); // render => ya espera el nombre d euna vista, en la carpeta de views
+    // Pasar variables a la vista
+    const viajes = 'Viaje Alemania';
+    res.render('nosotros', {
+        viajes, // usamos handlres para pasar viajes : viajes
+    }); // render => ya espera el nombre d euna vista, en la carpeta de views
 });
 
 // router.get('/contacto', (req, res) => {
