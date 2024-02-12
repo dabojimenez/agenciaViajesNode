@@ -14,8 +14,9 @@ const port = process.env.PORT || 4000;
 // use => soporta POST, GETL, PATCH, DELETE, etcy lo que hace es agregar a la pagina principal, las diferentes rutas que se van definiendo en router
 app.use('/', router);
 
-// si arranca correctamente, se moestrara el mensaje 
-app.listen( () => {
+// si arranca correctamente, se moestrara el mensaje
+// se agrega el puerto, para que funcione ene l navegador las diferentes rutas
+app.listen(port, () => {
 
     console.log(`El servidor esta funcionando en el puerto ${port}`);
 });
