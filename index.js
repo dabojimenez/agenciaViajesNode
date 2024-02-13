@@ -2,9 +2,17 @@
 // const express = require('express')
 import express from 'express';
 import router from './routes/index.js';
+import db from './config/db.js';
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const app = express();
+
+// Conectar la base de datos
+db.authenticate()
+    .then( ()=> console.log('Base de datos conectado'))
+    .catch( (error) => console.log(error))
 
 // Definir puerto
 // process.env.PORT = estas son variables de entorno y debe exitir en la parte de deployment, que por lo general node nos d auno
@@ -23,11 +31,16 @@ app.use( (req, res, next) => {
     const year = new Date();
     res.locals.actualYear = year.getFullYear();
 
+    res.locals.nombreSitio = "Agencia de Viajes";
+
     // le permitimos ir a la siguiente linea, cuando ya termino
     // si le colocamos un return, lo estariamos forrzando, esto en caso de que asi por si solo next() no funcione
     // return next();
     next();
 });
+
+// Agregar body parser para leer los datos del formulario
+app.use(express.urlencoded({extends: true}))
 
 // Definir la carpeta publica
 app.use(express.static('public')); // agregaremos la carpeta publica como los archivos estaticos de express
@@ -39,6 +52,5 @@ app.use('/', router);
 // si arranca correctamente, se moestrara el mensaje
 // se agrega el puerto, para que funcione ene l navegador las diferentes rutas
 app.listen(port, () => {
-
     console.log(`El servidor esta funcionando en el puerto ${port}`);
 });

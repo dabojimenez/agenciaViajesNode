@@ -4,12 +4,41 @@
 extends ./layout/index
 
 block contenido
-    p Desde pug 
-    //- Para usar, las variables en la vista, debemos usar el signo igual (=)
+    main.container.mt-5 
+        .row 
+            .col-md-5
+                //- img-fluid, para imagenes responsives, propio de bootstrap
+                img(src="img/nosotros.jpg", alt="imagen sobre nosotros", class="img-fluid")
+            .col-md-7 
+                h1 #{pagina}
+                blockquote Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae tristique dui. Maecenas eu nibh vel magna dignissim lacinia quis vel justo. Nulla et placerat dolor. Etiam consectetur tristique diam id elementum. Vestibulum venenatis dapibus nunc, vitae vehicula velit fringilla vitae. Donec maximus malesuada lobortis. Mauris purus elit, malesuada eu lectus eget, tristique vulputate sem. Sed consequat tellus felis, in faucibus est consectetur id. Praesent vestibulum, nisl eget porttitor ullamcorper, ligula lacus tempor leo, nec consequat tortor erat sit amet sapien.
 
-    p= viajes 
-    //- o podemos usar el signo de numeral (#) y las llaves ({})
-    p #{viajes}
+                p Vestibulum porta fermentum dignissim. Praesent consectetur tempus sem, in blandit magna lobortis vel. Nulla feugiat diam non ex molestie, nec venenatis dolor ultrices. Cras venenatis sem in leo egestas venenatis. Curabitur dapibus lectus nec arcu fermentum, non bibendum dui mollis. Quisque justo felis, rhoncus quis imperdiet eu, malesuada non tortor. Maecenas molestie mauris eget nisl placerat lacinia.
 
-    //- uso de imagenes
-    //- img(src="img/cupon.jpg", alt="cupon")
+                p Duis facilisis mauris ac libero eleifend ornare. Sed magna neque, tempus non gravida ut, auctor nec felis. Vestibulum congue nisi non ligula vulputate, eu elementum mauris molestie. Etiam nec leo sem. Suspendisse potenti. Praesent eget neque ac libero luctus luctus sed ut nulla. In hac habitasse platea dictumst. Phasellus in lectus accumsan, porttitor lectus a, viverra risus.
+
+    .listado-iconos
+        .container.mt-5.py-5.text-center 
+            .row 
+                .col-md-4 
+                    img(src="img/icono_seguridad.svg", alt="icno seguridad", class="img-fluid mb-4")
+                    h2.mb-4 Seguridad
+                    p Phasellus in lectus accumsan, porttitor lectus a, viverra risus.
+                .col-md-4 
+                    img(src="img/icono_destinos.svg", alt="icno destinos", class="img-fluid mb-4")
+                    h2.mb-4 Mejores Destinos
+                    p Phasellus in lectus accumsan, porttitor lectus a, viverra risus.
+                .col-md-4 
+                    img(src="img/icono_precios.svg", alt="icno precios", class="img-fluid mb-4")
+                    h2.mb-4 Mejores Precios
+                    p Phasellus in lectus accumsan, porttitor lectus a, viverra risus.
+//- block contenido
+//-     p Desde pug 
+//-     //- Para usar, las variables en la vista, debemos usar el signo igual (=)
+
+//-     p= viajes 
+//-     //- o podemos usar el signo de numeral (#) y las llaves ({})
+//-     p #{viajes}
+
+//-     //- uso de imagenes
+//-     //- img(src="img/cupon.jpg", alt="cupon")
