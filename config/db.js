@@ -19,10 +19,16 @@ dotenv.config();
  * 4.5.1) idle:
  * 4.6) operaratorAliases:
  */
-const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DB_HOST,
-    port: '3306',
-    dialect: 'mysql',
+const db = new Sequelize(
+    // Como ahora en nuestra variable de entorno  ya tenemos nuestra string de conexion, cambiamso el tipo de conexion
+
+    // process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    // host: process.env.DB_HOST,
+    // port: '3306',
+    // dialect: 'mysql',
+
+    // Cambiamos a la cadena de conexion
+    process.env.DATABASE_URL, {
     define: {
         timestamps: false
     },
