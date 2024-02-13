@@ -11,3 +11,6 @@ Configurar el archivo index.js, para arracncar node
 Configurar el archivo package.json, para ejecutar y arracncar el servidor
     Nota: en el archivo package.json, sirve para guardar las dependencias y tambien para arrnacar los archivos con los scripts
     nodemon index.js => ejecutara el binario d ela carpeta node_modules y ejecutara el archivo de ocnfiguracion del servidor que hemso configurado previamente
+
+// Para geenrar las vistas, debemos intalar pug, para mas información en la seccion: 395. Que es un template Engine? y Habilitando Pug
+    []
