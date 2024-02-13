@@ -1,3 +1,4 @@
+import { Testimonial } from "../models/Testimoniales.js";
 import { Viaje } from "../models/Viaje.js";
 
 const paginaInicio = (req, res) => {
@@ -5,7 +6,7 @@ const paginaInicio = (req, res) => {
     res.render('inicio', {
         pagina: 'Inicio'
     }); // metodo usado para mostrar algo en pantalla
-    
+
     // res.json({
     //     id: 1
     // }) // mostramos un json
@@ -35,11 +36,19 @@ const paginaViajes = async (req, res) => {
     });
 }
 
-const paginaTestimoniales = (req, res) => {
+const paginaTestimoniales = async (req, res) => {
     // res.send('Contacto');
-    res.render('testimoniales', {
-        pagina: 'Testimoniales',
-    });
+    try {
+        // Cosultamos los testimoniales existentes
+        const testimoniales = await Testimonial.findAll();
+        console.log(testimoniales);
+        res.render('testimoniales', {
+            pagina: 'Testimoniales',
+            testimoniales,
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Muestra un viaje por su slug
@@ -50,9 +59,11 @@ const paginaDetalleViaje = async (req, res) => {
 
     try {
         // traemos un solo registro de la base de datos y con where le hacemos una condicion, indicandole la columna y el valor
-        const resultado = await Viaje.findOne({ where: {
-            slug
-        }})
+        const resultado = await Viaje.findOne({
+            where: {
+                slug
+            }
+        })
         res.render('viaje', {
             pagina: 'Información Viaje',
             resultado
