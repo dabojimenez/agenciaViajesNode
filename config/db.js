@@ -1,4 +1,6 @@
 import Sequelize from "sequelize";
+import dotenv from "dotenv";
+dotenv.config();
 
 // se debe pasar los siguiente svalores
 /**
@@ -17,8 +19,8 @@ import Sequelize from "sequelize";
  * 4.5.1) idle:
  * 4.6) operaratorAliases:
  */
-const db = new Sequelize('agenciaviajesnode', 'root', '', {
-    host: '127.0.0.1',
+const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    host: process.env.DB_HOST,
     port: '3306',
     dialect: 'mysql',
     define: {
