@@ -1,6 +1,7 @@
 // en este archvio colocaremos todo lo que este relacionado con las rutas
 import express from "express";
 import { paginaDetalleViaje, paginaInicio, paginaNosotros, paginaTestimoniales, paginaViajes } from "../controllers/paginasController.js";
+import { guardarTestimonial } from "../controllers/testimonialController.js";
 
 
 // Estamos obteniendo la msima instancia de expres pero extendemos su router
@@ -21,6 +22,8 @@ router.get('/viajes', paginaViajes);
 router.get('/viajes/:slug', paginaDetalleViaje)
 
 router.get('/testimoniales', paginaTestimoniales);
+// para la recepción de datos del formulario
+router.post('/testimoniales', guardarTestimonial);
 
 
 export default router;

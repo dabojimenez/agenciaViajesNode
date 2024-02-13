@@ -37,6 +37,9 @@ app.use( (req, res, next) => {
     next();
 });
 
+// Agregar body parser para leer los datos del formulario
+app.use(express.urlencoded({extends: true}))
+
 // Definir la carpeta publica
 app.use(express.static('public')); // agregaremos la carpeta publica como los archivos estaticos de express
 
@@ -47,6 +50,5 @@ app.use('/', router);
 // si arranca correctamente, se moestrara el mensaje
 // se agrega el puerto, para que funcione ene l navegador las diferentes rutas
 app.listen(port, () => {
-
     console.log(`El servidor esta funcionando en el puerto ${port}`);
 });
