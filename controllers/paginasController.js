@@ -1,12 +1,29 @@
 import { Testimonial } from "../models/Testimoniales.js";
 import { Viaje } from "../models/Viaje.js";
 
-const paginaInicio = (req, res) => {
-    // colocar nuestra propia respuesta
-    res.render('inicio', {
-        pagina: 'Inicio'
-    }); // metodo usado para mostrar algo en pantalla
+const paginaInicio = async (req, res) => {
+    
+    //Creacion de un promise, apra cmabiar el enfoque de usar await, await, await de forma seguida en las lineas ocntinuas
+    const promiseDB = [];
+    
+    promiseDB.push(Viaje.findAll({ limit: 3})); // consultar tres viajes del modelo viaje
+    promiseDB.push(Testimonial.findAll({ limit: 3 })); // consultar tres viajes del modelo viaje
+    
+    try {
+        // Promise.all => arrancara las consultas al mismo tiempo
+        // obtendremos los valores de las consultas en promiseDB
+        const resultado = await Promise.all( promiseDB );
+        res.render('inicio', {
+            pagina: 'Inicio',
+            clase: 'home',
+            viajes: resultado[0],
+            testimoniales: resultado[1]
+        }); // metodo usado para mostrar algo en pantalla
+    } catch (error) {
+        console.log(error);
+    }
 
+    // colocar nuestra propia respuesta
     // res.json({
     //     id: 1
     // }) // mostramos un json
@@ -41,7 +58,7 @@ const paginaTestimoniales = async (req, res) => {
     try {
         // Cosultamos los testimoniales existentes
         const testimoniales = await Testimonial.findAll();
-        console.log(testimoniales);
+        // console.log(testimoniales);
         res.render('testimoniales', {
             pagina: 'Testimoniales',
             testimoniales,
