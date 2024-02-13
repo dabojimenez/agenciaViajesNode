@@ -20,3 +20,28 @@ Configurar el archivo package.json, para ejecutar y arracncar el servidor
         sequelize => viene a ser un ORM que usaremos en este proyecto
     
     Despues creamos en la raiz, una carpeta llamada (config), con un archivo llamado (db.js), que tendra la configuración de la conexion a nuestra base de datos
+
+
+--------------------------------------------------
+********* CONSIDERACIONES DE DEPLOYMENT***********
+--------------------------------------------------
+* Los proyectos de Node/Express deberán ser publicados en un servidor que soporten esta plataforma
+* La base de datos tambien debe estar en un servidor, se necesita acceso que sea publico
+* Es necesario ajustar nuestro proyecto para realizar el deployment
+    (1) Variables de entorno, esto para la parte de producción ya que su entorno es diferente.
+        Estan evitan que valores visibles sean almacenados en GitHub o que se puedan acceder de forma muy sencilla
+        Intalar:
+            [npm i dotenv]
+        Pasos:
+            (1.0) Crear un archivo llamado .env en la raiz del proyecto, este debe ser agregado en el .gitignore y el contenido de este archivo .env sera:
+                DATABASE=agenciaviajesnodetest
+            (1.1) En el archivo que deseamos usar las variables de entorno, importaremos dotenv
+                import dotenv from "dotenv";
+                dotenv.config() // Habilitamos el uso de .env
+                console.log(process.env.DATABASE) // accedemos al valor de DATABASE
+            (1.2) En el arhcivo package.json agregamso el scrip que usarmeos en producción que sera el siguiente:
+                "scripts": {
+                    "dev": "nodemon index.js",
+                    "start": "node index.js"
+                },
+        Nota: Node desde la version 20.6 node ya puede leer variables de enetorno
