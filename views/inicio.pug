@@ -1,8 +1,34 @@
 extends ./layout/index
 
+block slider 
+    .slider 
+        h1 Rio de Janeiro 
+        em aventura
+
 //- hacemos referencia al nombre del layout principal o del master pages, que se llama contenido
 //- Es importante la identación, de lo contrario se produciran errores
 block contenido
     main.container.mt-5 
-        .row 
-            h1= pagina  
+        h2.text-center.mb-5 Sobre Nosotros
+        .row.mb-5 
+            .col-md-6
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum quam id dui laoreet, at ultrices ex iaculis. Integer interdum vel sem vel aliquam. Fusce ut lorem at orci iaculis efficitur. Curabitur lorem magna, malesuada in volutpat eget, tincidunt non lacus. Quisque posuere, mauris ac ullamcorper molestie, quam nisl rhoncus augue, in placerat arcu tellus id mi. Phasellus quam erat, aliquet sit amet nibh sed, commodo ornare justo.
+                p Integer tempus sagittis ipsum, vitae mattis risus congue sit amet. Donec tincidunt erat nisi, vel porttitor velit porta non. Nam tincidunt, nisi at congue facilisis, lacus tortor finibus orci, sed lobortis ligula libero vulputate mauris.
+            .col-md-6
+                img(src="/img/inicio_nosotros.jpg", alt="imagen nosotros" class="img-fluid")
+        include ./layout/bloque_viajes
+    
+    .descuento 
+        .container 
+            .row 
+                .col-md-6 
+                    .contenido 
+                        h3 5% de Descuento 
+                        p.titulo Viaje a Canada
+                        p.fecha 20 de Marzo de 2024 - 28 de Marzo de 2024
+                        p.precio $2,500 USD
+
+    .container 
+        h2.mt-5.text-center Testimoniales
+
+        include ./layout/bloque_testimoniales
